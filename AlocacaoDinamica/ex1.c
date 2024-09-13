@@ -5,6 +5,7 @@
 //deve ser o mesmo) com o novo valor. Utilizar função para alocação dinâmica
 
 void aloca(float **p, int tam);
+void leitura(**p, tam);
 
 int main()
 {
@@ -21,5 +22,18 @@ void aloca(float **p, int tam)
 	{
 		printf("Erro na Alocacao");
 		exit(1);
+	}
+	printf("\nFuncao aloca - endereco %u", *p);
+}
+
+void leitura(**p, tam)
+{
+	int i;
+	float valor;
+	for(i = 0; i < tam; i ++)
+	{
+		printf("\ndigite um valor");
+		scanf("%f", &valor);
+		*(p+i) = valor;
 	}
 }
