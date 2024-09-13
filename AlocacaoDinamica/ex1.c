@@ -5,14 +5,18 @@
 //deve ser o mesmo) com o novo valor. Utilizar função para alocação dinâmica
 
 void aloca(float **p, int tam);
-void leitura(**p, tam);
+void leitura(float *p, int tam);
+void imprime(float *p, int tam);
+void soma(float *p, int tam);
 
 int main()
 {
 	float *ptr=NULL;
 	
 	aloca(&ptr, 10);
-	
+	leitura(ptr, 10);
+	soma(ptr, 10);
+	imprime(ptr, 10);
 	return 0;
 }
 
@@ -26,14 +30,31 @@ void aloca(float **p, int tam)
 	printf("\nFuncao aloca - endereco %u", *p);
 }
 
-void leitura(**p, tam)
+void leitura(float *p, int tam)
 {
 	int i;
-	float valor;
 	for(i = 0; i < tam; i ++)
 	{
-		printf("\ndigite um valor");
-		scanf("%f", &valor);
-		*(p+i) = valor;
+		printf("\ndigite um valor ");
+		scanf("%f", p+i);
+	}
+}
+
+void imprime(float *p, int tam)
+{
+	int i;
+	
+	for(i = 0; i < tam; i ++)
+	{
+		printf("\nEndereco: %u. Valor: %.2f ", p+i, *(p+i));
+	}
+}
+
+void soma(float *p, int tam)
+{
+	int i; 
+	for(i = 0; i < tam; i ++)
+	{
+		*(p+i) += 30;
 	}
 }
